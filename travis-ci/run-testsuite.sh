@@ -11,7 +11,9 @@ set -ex
 #
 cd "$HOME/anaconda"
 
-./scripts/testing/dependency_solver.py | xargs -d '\n' sudo dnf install -y make
+./scripts/testing/dependency_solver.py | xargs -d '\n' \
+	dnf install -y make 'python3dist(polib)' 'python3dist(pocketlint)' \
+		'python3dist(pocketlint)'
 
 ln -sf /usr/bin/python3 /usr/bin/python
 
